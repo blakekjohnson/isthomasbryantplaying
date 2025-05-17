@@ -42,7 +42,7 @@ app.get('/api/isOnFloor/:playerId/:teamId', async (req, res) => {
 
 export default {
   async fetch(request, env, context) {
-    handleRequest({
+    return handleRequest({
       request,
       env,
       context,
