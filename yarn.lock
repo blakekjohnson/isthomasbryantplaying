@@ -460,6 +460,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@isaacs/ttlcache@npm:^1.4.1":
+  version: 1.4.1
+  resolution: "@isaacs/ttlcache@npm:1.4.1"
+  checksum: 10c0/6921de516917b02673a58e543c2b06fd04237cbf6d089ca22d6e98defa4b1e9a48258cb071d6b581284bb497bea687320788830541511297eecbe6e93a665bbf
+  languageName: node
+  linkType: hard
+
 "@jridgewell/resolve-uri@npm:^3.0.3":
   version: 3.1.2
   resolution: "@jridgewell/resolve-uri@npm:3.1.2"
@@ -1377,10 +1384,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "isthomasbryantplaying@workspace:."
   dependencies:
+    "@isaacs/ttlcache": "npm:^1.4.1"
     dotenv: "npm:^16.5.0"
     express: "npm:^5.1.0"
     express-flare: "npm:^1.4.27"
-    safe-memory-cache: "npm:^3.0.0"
     wrangler: "npm:^4.15.2"
   languageName: unknown
   linkType: soft
@@ -1830,13 +1837,6 @@ __metadata:
   version: 5.2.1
   resolution: "safe-buffer@npm:5.2.1"
   checksum: 10c0/6501914237c0a86e9675d4e51d89ca3c21ffd6a31642efeba25ad65720bce6921c9e7e974e5be91a786b25aa058b5303285d3c15dbabf983a919f5f630d349f3
-  languageName: node
-  linkType: hard
-
-"safe-memory-cache@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "safe-memory-cache@npm:3.0.0"
-  checksum: 10c0/0484c771d6926c5c874847a0272c1fc75c6441027e6629fbb9fcb988fac7e8668991ce3a931ed34c9e1f44a1c7b58959aab5cce91851c3c994389893fd48a97b
   languageName: node
   linkType: hard
 

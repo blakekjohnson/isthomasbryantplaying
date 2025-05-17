@@ -3,12 +3,12 @@ config();
 
 import express from 'express';
 import { handleRequest, router } from 'express-flare';
-import { safeMemoryCache } from 'safe-memory-cache';
+import TTLCache from '@isaacs/ttlcache';
 
 
-let playerOnFloorCache = safeMemoryCache({
-  limit: 5,
-  maxTTL: 300000,
+let playerOnFloorCache = new TTLCache({
+  max: 5,
+  ttl: 300000,
 });
 
 const { checkIfPlayerForTeamIsOnFloor } = require('./util');
@@ -25,9 +25,8 @@ app.get('/api/isOnFloor/:playerId/:teamId', async (req, res) => {
 
   var isOnFloor = false;
 
-  const cachedValue = playerOnFloorCache.get(key);
-  if (cachedValue != undefined && !ignoreCache) {
-    isOnFloor = cachedValue;
+  if (playerOnFloorCache.has(key) && !ignoreCache) {
+    isOnFloor = playerOnFloorCache.get(key);
   } else {
     isOnFloor = await checkIfPlayerForTeamIsOnFloor({
       playerId,
