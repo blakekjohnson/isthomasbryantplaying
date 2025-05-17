@@ -5,6 +5,8 @@ const { checkIfPlayerForTeamIsOnFloor } = require('./util');
 
 const app = express();
 
+app.use(express.static('public'));
+
 app.get('/api/isPlaying/:playerId/:teamId', async (req, res) => {
   console.log('Receiving request for isPlaying');
   const isPlaying = await checkIfPlayerForTeamIsOnFloor(
