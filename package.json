@@ -1,0 +1,10 @@
+{
+  "name": "isthomasbryantplaying",
+  "packageManager": "yarn@4.9.1",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
