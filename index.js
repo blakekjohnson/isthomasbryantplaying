@@ -13,7 +13,7 @@ app.get('/api/isPlaying/:playerId/:teamId', async (req, res) => {
     req.params.playerId,
     req.params.teamId);
 
-  res.status(200).send(isPlaying);
+  res.status(200).send(isPlaying ? "Yes" : "No");
 });
 
 app.listen(process.env.PORT, () => {

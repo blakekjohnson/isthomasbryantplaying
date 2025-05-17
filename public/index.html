@@ -6,24 +6,25 @@
       src="https://unpkg.com/htmx.org@2.0.4"
       integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
       crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
   </head>
 
   <body>
-    <h1>Is Thomas Bryant Playing?</h1>
-    <p
+    <div><h1>Is Thomas Bryant Playing?</h1></div>
+    <div><p
       id="currentlyPlayingMessage"
       hx-get="/api/isPlaying/1628418/1610612754"
       hx-target="#currentlyPlayingMessage"
       hx-swap="innerHTML"
       hx-trigger="load">
       Fetching status...
-    </p>
-    <button
+      </p></div>
+      <div><button
         hx-get="/api/isPlaying/1628418/1610612754"
         hx-target="#currentlyPlayingMessage"
         hx-swap="innerHTML">
       Check Again
-    </button>
+        </button></div>
   </body>
 </html>
 
