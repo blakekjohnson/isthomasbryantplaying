@@ -1,7 +1,10 @@
-require('dotenv').config();
-const express = require('express');
-const { handleRequest, router } = require('express-flare');
-const { safeMemoryCache } = require('safe-memory-cache');
+import { config } from 'dotenv';
+config();
+
+import express from 'express';
+import { handleRequest, router } from 'express-flare';
+import { safeMemoryCache } from 'safe-memory-cache';
+
 
 let playerOnFloorCache = safeMemoryCache({
   limit: 5,
@@ -38,10 +41,14 @@ app.get('/api/isOnFloor/:playerId/:teamId', async (req, res) => {
   res.status(200).send(isOnFloor ? "Yes" : "No");
 });
 
-addEventListener('fetch', (event) => {
-  event.respondWith(handleRequest({
-    event,
-    router: app,
-  }));
-});
+export default {
+  async fetch(request, env, context) {
+    handleRequest({
+      request,
+      env,
+      context,
+      router: app,
+    })
+  }
+};
 
