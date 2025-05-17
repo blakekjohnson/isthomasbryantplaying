@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const { handleRequest, router } = require('express-flare');
 const { safeMemoryCache } = require('safe-memory-cache');
 
 let playerOnFloorCache = safeMemoryCache({
@@ -9,7 +10,7 @@ let playerOnFloorCache = safeMemoryCache({
 
 const { checkIfPlayerForTeamIsOnFloor } = require('./util');
 
-const app = express();
+const app = router();
 
 app.use(express.static('public'));
 
@@ -37,7 +38,10 @@ app.get('/api/isOnFloor/:playerId/:teamId', async (req, res) => {
   res.status(200).send(isOnFloor ? "Yes" : "No");
 });
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server listening for requests on port ${process.env.PORT}`);
+addEventListener('fetch', (event) => {
+  event.respondWith(handleRequest({
+    event,
+    router: app,
+  }));
 });
 

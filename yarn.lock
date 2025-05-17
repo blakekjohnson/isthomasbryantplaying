@@ -5,6 +5,13 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
+"@types/cookie@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@types/cookie@npm:0.4.1"
+  checksum: 10c0/f96afe12bd51be1ec61410b0641243d93fa3a494702407c787a4c872b5c8bcd39b224471452055e44a9ce42af1a636e87d161994226eaf4c2be9c30f60418409
+  languageName: node
+  linkType: hard
+
 "accepts@npm:^2.0.0":
   version: 2.0.0
   resolution: "accepts@npm:2.0.0"
@@ -79,6 +86,13 @@ __metadata:
   version: 1.2.2
   resolution: "cookie-signature@npm:1.2.2"
   checksum: 10c0/54e05df1a293b3ce81589b27dddc445f462f6fa6812147c033350cd3561a42bc14481674e05ed14c7bd0ce1e8bb3dc0e40851bad75415733711294ddce0b7bc6
+  languageName: node
+  linkType: hard
+
+"cookie@npm:^0.4.2":
+  version: 0.4.2
+  resolution: "cookie@npm:0.4.2"
+  checksum: 10c0/beab41fbd7c20175e3a2799ba948c1dcc71ef69f23fe14eeeff59fc09f50c517b0f77098db87dbb4c55da802f9d86ee86cdc1cd3efd87760341551838d53fca2
   languageName: node
   linkType: hard
 
@@ -174,6 +188,16 @@ __metadata:
   version: 1.8.1
   resolution: "etag@npm:1.8.1"
   checksum: 10c0/12be11ef62fb9817314d790089a0a49fae4e1b50594135dcb8076312b7d7e470884b5100d249b28c18581b7fd52f8b485689ffae22a11ed9ec17377a33a08f84
+  languageName: node
+  linkType: hard
+
+"express-flare@npm:^1.4.27":
+  version: 1.4.27
+  resolution: "express-flare@npm:1.4.27"
+  dependencies:
+    "@types/cookie": "npm:^0.4.1"
+    cookie: "npm:^0.4.2"
+  checksum: 10c0/6c3ce89249bc720fdc6340bb4ce7562da4e20c30d8b33895502d015d2634fd9712b4da1966460a2212e57bd231694c982ec516c62006bbb868a81e24e4628bc8
   languageName: node
   linkType: hard
 
@@ -347,6 +371,7 @@ __metadata:
   dependencies:
     dotenv: "npm:^16.5.0"
     express: "npm:^5.1.0"
+    express-flare: "npm:^1.4.27"
     safe-memory-cache: "npm:^3.0.0"
   languageName: unknown
   linkType: soft
