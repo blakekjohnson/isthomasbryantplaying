@@ -1,9 +1,20 @@
+const express = require('express');
 require('dotenv').config();
 
 const { checkIfPlayerForTeamIsOnFloor } = require('./util');
 
-(async () => {
-  const res = await checkIfPlayerForTeamIsOnFloor(process.env.PLAYER_ID, process.env.TEAM_ID);
-  console.log(res);
-})();
+const app = express();
+
+app.get('/api/isPlaying/:playerId/:teamId', async (req, res) => {
+  console.log('Receiving request for isPlaying');
+  const isPlaying = await checkIfPlayerForTeamIsOnFloor(
+    req.params.playerId,
+    req.params.teamId);
+
+  res.status(200).send(isPlaying);
+});
+
+app.listen(process.env.PORT, () => {
+  console.log(`Server listening for requests on port ${process.env.PORT}`);
+});
 
