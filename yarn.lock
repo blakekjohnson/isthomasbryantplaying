@@ -347,6 +347,7 @@ __metadata:
   dependencies:
     dotenv: "npm:^16.5.0"
     express: "npm:^5.1.0"
+    safe-memory-cache: "npm:^3.0.0"
   languageName: unknown
   linkType: soft
 
@@ -495,6 +496,13 @@ __metadata:
   version: 5.2.1
   resolution: "safe-buffer@npm:5.2.1"
   checksum: 10c0/6501914237c0a86e9675d4e51d89ca3c21ffd6a31642efeba25ad65720bce6921c9e7e974e5be91a786b25aa058b5303285d3c15dbabf983a919f5f630d349f3
+  languageName: node
+  linkType: hard
+
+"safe-memory-cache@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "safe-memory-cache@npm:3.0.0"
+  checksum: 10c0/0484c771d6926c5c874847a0272c1fc75c6441027e6629fbb9fcb988fac7e8668991ce3a931ed34c9e1f44a1c7b58959aab5cce91851c3c994389893fd48a97b
   languageName: node
   linkType: hard
 

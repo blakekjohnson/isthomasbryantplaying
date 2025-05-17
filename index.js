@@ -1,5 +1,11 @@
-const express = require('express');
 require('dotenv').config();
+const express = require('express');
+const { safeMemoryCache } = require('safe-memory-cache');
+
+let playerOnFloorCache = safeMemoryCache({
+  limit: 5,
+  maxTTL: 300000,
+});
 
 const { checkIfPlayerForTeamIsOnFloor } = require('./util');
 
@@ -7,13 +13,28 @@ const app = express();
 
 app.use(express.static('public'));
 
-app.get('/api/isPlaying/:playerId/:teamId', async (req, res) => {
+app.get('/api/isOnFloor/:playerId/:teamId', async (req, res) => {
   console.log('Receiving request for isPlaying');
-  const isPlaying = await checkIfPlayerForTeamIsOnFloor(
-    req.params.playerId,
-    req.params.teamId);
+  const { playerId, teamId } = req.params;
+  const { ignoreCache = false } = req.query;
+  const key = `${playerId}~${teamId}`;
 
-  res.status(200).send(isPlaying ? "Yes" : "No");
+  var isOnFloor = false;
+
+  const cachedValue = playerOnFloorCache.get(key);
+  if (cachedValue != undefined && !ignoreCache) {
+    isOnFloor = cachedValue;
+  } else {
+    isOnFloor = await checkIfPlayerForTeamIsOnFloor({
+      playerId,
+      teamId,
+    });
+    playerOnFloorCache.set(key, isOnFloor);
+
+    console.log(`${key} has been updated in cache`);
+  }
+
+  res.status(200).send(isOnFloor ? "Yes" : "No");
 });
 
 app.listen(process.env.PORT, () => {

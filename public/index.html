@@ -13,14 +13,14 @@
     <div><h1>Is Thomas Bryant Playing?</h1></div>
     <div><p
       id="currentlyPlayingMessage"
-      hx-get="/api/isPlaying/1628418/1610612754"
+      hx-get="/api/isOnFloor/1628418/1610612754"
       hx-target="#currentlyPlayingMessage"
       hx-swap="innerHTML"
       hx-trigger="load">
       Fetching status...
       </p></div>
       <div><button
-        hx-get="/api/isPlaying/1628418/1610612754"
+        hx-get="/api/isOnFloor/1628418/1610612754?ignoreCache=true"
         hx-target="#currentlyPlayingMessage"
         hx-swap="innerHTML">
       Check Again

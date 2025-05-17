@@ -33,8 +33,8 @@ async function fetchBoxScore(gameId) {
   return data.game;
 }
 
-// Check if the player is listed as active
-function verifyPlayerIsPlaying(boxScore, playerId) {
+// Check if the player is on the floor
+function verifyPlayerOnFloor(boxScore, playerId) {
   const allPlayers = [
     ...boxScore.homeTeam.players,
     ...boxScore.awayTeam.players
@@ -46,7 +46,9 @@ function verifyPlayerIsPlaying(boxScore, playerId) {
   return matchingOnCourtPlayers.length > 0;
 }
 
-async function checkIfPlayerForTeamIsOnFloor(playerId, teamId) {
+async function checkIfPlayerForTeamIsOnFloor(options) {
+  const { playerId, teamId } = options;
+
   const todaysScoreboard = await fetchTodaysScoreboard();
   const todaysGameId = getTodaysGameId(todaysScoreboard, teamId);
 
@@ -55,9 +57,9 @@ async function checkIfPlayerForTeamIsOnFloor(playerId, teamId) {
   }
 
   const currentBoxScore = await fetchBoxScore(todaysGameId);
-  const playerIsPlaying = verifyPlayerIsPlaying(currentBoxScore, playerId);
+  const playerOnFloor = verifyPlayerOnFloor(currentBoxScore, playerId);
 
-  return playerIsPlaying;
+  return playerOnFloor;
 }
 
 export { checkIfPlayerForTeamIsOnFloor };
