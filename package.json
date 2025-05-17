@@ -2,7 +2,6 @@
   "name": "isthomasbryantplaying",
   "packageManager": "yarn@4.9.1",
   "dependencies": {
-    "@isaacs/ttlcache": "^1.4.1",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "express-flare": "^1.4.27",
