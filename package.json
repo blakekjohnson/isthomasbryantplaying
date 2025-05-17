@@ -2,6 +2,7 @@
   "name": "isthomasbryantplaying",
   "packageManager": "yarn@4.9.1",
   "dependencies": {
+    "dotenv": "^16.5.0",
     "express": "^5.1.0"
   },
   "scripts": {
