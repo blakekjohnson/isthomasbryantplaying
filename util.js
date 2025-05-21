@@ -15,6 +15,7 @@ function getTodaysGameId(todaysScoreboard, teamId) {
     .filter(game => {
       return game.homeTeam.teamId == teamId || game.awayTeam.teamId == teamId;
     })
+    .filter(game => game.gameStatus > 1)
     .map(game => game.gameId);
 
   if (validGames.length < 1) {

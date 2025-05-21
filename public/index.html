@@ -10,21 +10,32 @@
   </head>
 
   <body>
-    <h1>Is Thomas Bryant Playing?</h1>
-    <p
-      id="currentlyPlayingMessage"
-      hx-get="/api/isOnFloor/1628418/1610612754"
-      hx-target="#currentlyPlayingMessage"
-      hx-swap="innerHTML"
-      hx-trigger="load">
-      Fetching status...
-    </p>
-    <button
-      hx-get="/api/isOnFloor/1628418/1610612754?ignoreCache=true"
-      hx-target="#currentlyPlayingMessage"
-      hx-swap="innerHTML">
-    Check Again
-    </button>
+    <div class="container">
+      <h1>Is Thomas Bryant Playing?</h1>
+      <p
+        id="currentlyPlayingMessage"
+        hx-get="/api/isOnFloor/1628418/1610612754"
+        hx-target="#currentlyPlayingMessage"
+        hx-swap="innerHTML"
+        hx-trigger="load">
+        Fetching status...
+      </p>
+      <button
+        id="check-button"
+        hx-get="/api/isOnFloor/1628418/1610612754?ignoreCache=true"
+        hx-target="#currentlyPlayingMessage"
+        hx-swap="innerHTML">
+      Check Again
+      </button>
+      <div class="footer">
+        Blake Johnson - 2025
+        <br />
+        Source on
+        <a href="https://github.com/blakekjohnson/isthomasbryantplaying">
+          GitHub
+        </a>
+      </div>
+    </div>
   </body>
 </html>
 

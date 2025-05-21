@@ -1,7 +1,16 @@
-body {
+html, body {
   background-color: #FFC72C;
+  display: flex;
+  flex-direction: column;
   font-family: 'Trebuchet MS', sans-serif;
+  height: 100%;
   text-align: center;
+  padding: 1em;
+}
+
+.container {
+  flex: auto;
+  width: max(25%, min(500px, 100%));
 }
 
 h1 {
@@ -14,7 +23,12 @@ p {
   font-size: 2.5em;
 }
 
-button {
+#check-button {
   font-size: 1.75em;
+}
+
+.footer {
+  text-align: center;
+  flex-shrink: 0;
 }
 
