@@ -10,7 +10,6 @@ html, body {
 
 .container {
   flex: auto;
-  width: max(25%, min(500px, 100%));
 }
 
 h1 {
