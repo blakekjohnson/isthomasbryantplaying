@@ -34,7 +34,7 @@ app.get('/api/isOnFloor/:playerId/:teamId', async (req, res) => {
     console.log(`${key} has been updated in cache`);
   }
 
-  res.status(200).send(isOnFloor ? "Yes" : "No");
+  res.status(200).send(isOnFloor ? "YES!!!" : "No");
 });
 
 app.listen(process.env.PORT, () => {
